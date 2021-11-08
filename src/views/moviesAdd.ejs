@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie add</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel='stylesheet' href='/css/style.css' />
+</head>
+
+<body>
+    <figure>
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+      </figure>
+    <p>
+        <a href="/">Home</a>
+    </p>
+    <br> 
+    <h1 class="titulo">Agregar Película</h1>
+    <br>
+    <section class="formulario">
+        <form action="/movies/create" method="POST">
+            <label for="title">Title </label>
+            <p><input type="text" name="title" id=""  value="<%= locals.old && old.title? old.title: null%>">
+            <span class="small text-danger"><%= locals.errors && locals.errors.title ? errors.title.msg : null %></span></p>
+            <label for="rating">Rating </label>
+            <p><input type="number" name="rating" id="" value="<%= locals.old && old.rating ? old.rating : null %>">
+            <span class="small text-danger"><%= locals.errors && errors.rating ? errors.rating.msg : null %> </span></p>
+            <label for="awards">Awards </label>
+            <p><input type="number" name="awards" id="" value="<%= locals.old && old.awards ? old.awards : null %>">
+            <span class="small text-danger"><%= locals.errors && errors.awards ? errors.awards.msg : null %> </span></p>
+            <label for="release_date">Release date </label>
+            <p><input type="date" name="release_date" id="" value="<%= locals.old && old.release_date? old.release_date: null%>">
+            <span class="small text-danger"><%= locals.errors && errors.release_date ? errors.release_date.msg :null %></span></p>
+            <label for="length">Length </label>
+            <p><input type="number" name="length" id="" value="<%= locals.old && old.length ? old.length : null %>">
+            <span class="small text-danger"><%= locals.errors && errors.length ? errors.length.msg : null %> </span></p>
+            
+            <br>
+            <p> <button class="botonAgregar" type="submit">Agregar</button>
+            <br>
+            <p>
+                <a  class="botonVolver" href="/movies">Listado de Películas</a></p>
+            </p>
+            
+        </form>
+    </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
